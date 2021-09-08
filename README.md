@@ -56,6 +56,8 @@ If you have any suggestions and/or bugs drop a message!
 Added support for Windows, setup scripts to configure parser. Now there is a posobility to run cfparser from any directory as you want.
 Added "cfrate" script, that provides rating-list of solved problems for every user whose name you entered. 
 
+###Known issues:
+* May not work cfparse in MacOS. Try to `chmod +x cfparse.py`
 
 ##### Todo, Bugs & Troubleshootings:
 
