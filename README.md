@@ -45,8 +45,9 @@ Enter in the shell `cfrate CF_HANDLE1 CF_HANDLE2 ...` and you will get a list of
 
 ### Collaborators and Versions:
 
-##### List of CodeForces Collaborators:
-+ [DanArmor](https://codeforces.com/profile/DanArmor)
+##### List of CodeForces Collaborators and assistants:
++ [DanArmor](https://codeforces.com/profile/DanArmor) - Creator
++ [Evok](https://codeforces.com/profile/Evok) - helped with testing on MacOS
 
 If you have any suggestions and/or bugs drop a message!
 
