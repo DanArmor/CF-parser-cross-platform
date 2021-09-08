@@ -58,9 +58,9 @@ Added "cfrate" script, that provides rating-list of solved problems for every us
 
 ### Known issues:
 * May not work cfparse/cfrate in MacOS. Try to `chmod +x cfparse.py` and `chmod +x cfrate.py`
+* In OS X it is necessary to install the `gnu-time` to measure time.
 
 ##### Todo, Bugs & Troubleshootings:
 
-+ In OS X it is necessary to install the `gnu-time` to measure time.
 + Setup script for Unix/Mac.
 + User $PATH variable in Windows ?
