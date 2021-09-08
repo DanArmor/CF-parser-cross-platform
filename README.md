@@ -3,7 +3,7 @@ Codeforces Parser v2.0
 
 Summary
 -------
-
+#### If you're using MacOS - please, take a look at the end of the page - "Known issues".
 [Codeforces](http://codeforces.com/) is a website for _competitive programming_. It holds contests, so-called **Codeforces Rounds**, about every week.
 
 This is a python program that parses the sample tests from the contest problem pages. For each problem, it generates the sample input/output files and a shell script to run sample tests.
@@ -57,8 +57,17 @@ Added support for Windows, setup scripts to configure parser. Now there is a pos
 Added "cfrate" script, that provides rating-list of solved problems for every user whose name you entered. 
 
 ### Known issues:
-* May not work cfparse/cfrate in MacOS. Try to `chmod +x cfparse.py` and `chmod +x cfrate.py`
+#### MacOS
+* May not work cfparse/cfrate in MacOS from the start. Try to `chmod +x cfparse.py` and `chmod +x cfrate.py`
 * In OS X it is necessary to install the `gnu-time` to measure time.
+* If you want to use stdc++.h in MacOS:
+** First open finder. Then press shift+cmd+G.
+
+** Then copy this /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ and paste it in the box. then click Go.
+
+** When you're in v1 folder create a new folder called bits after that create a new file called stdc++.h
+
+** Then go to this page: https://github.com/tekfyl/bits-stdc-.h-for-mac/blob/master/stdc%2B%2B.h copy the content and paste it in stdc++.h file and save it. Done.
 
 ##### Todo, Bugs & Troubleshootings:
 
