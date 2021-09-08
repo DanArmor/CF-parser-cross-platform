@@ -61,13 +61,13 @@ Added "cfrate" script, that provides rating-list of solved problems for every us
 * May not work cfparse/cfrate in MacOS from the start. Try to `chmod +x cfparse.py` and `chmod +x cfrate.py`
 * In OS X it is necessary to install the `gnu-time` to measure time.
 * If you want to use stdc++.h in MacOS:
-** First open finder. Then press shift+cmd+G.
+1. First open finder. Then press shift+cmd+G.
 
-** Then copy this /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ and paste it in the box. then click Go.
+2. Then copy this /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ and paste it in the box. then click Go.
 
-** When you're in v1 folder create a new folder called bits after that create a new file called stdc++.h
+3. When you're in v1 folder create a new folder called bits after that create a new file called stdc++.h
 
-** Then go to this page: https://github.com/tekfyl/bits-stdc-.h-for-mac/blob/master/stdc%2B%2B.h copy the content and paste it in stdc++.h file and save it. Done.
+4. Then go to this page: https://github.com/tekfyl/bits-stdc-.h-for-mac/blob/master/stdc%2B%2B.h copy the content and paste it in stdc++.h file and save it. Done.
 
 ##### Todo, Bugs & Troubleshootings:
 
