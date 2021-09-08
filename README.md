@@ -54,7 +54,7 @@ If you have any suggestions and/or bugs drop a message!
 ### Versions Changes:
 
 + **2.0:**
-Added support for Windows, setup scripts to configure parser. Now there is a posobility to run cfparser from any directory as you want.
+Added support for Windows, setup scripts to configure parser. Now there is a possibility to run cfparser from any directory as you want.
 Added "cfrate" script, that provides rating-list of solved problems for every user whose name you entered. 
 
 ### Known issues:
