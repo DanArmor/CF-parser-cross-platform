@@ -84,7 +84,7 @@ SAMPLE_OUTPUT='output'
 MY_OUTPUT='my_output'
 
 # Do not modify these!
-VERSION='CodeForces Parser v2.0'
+VERSION='CodeForces Parser v2.0 https://github.com/DanArmor/CF-parser-cross-platform'
 RED_F='\033[31m'
 GREEN_F='\033[32m'
 BOLD='\033[1m'
