@@ -14,8 +14,9 @@ Also it has "cfrate" script, which provides rating-list of solved problems for e
 
 ### Installation
 
- * If you want to run script from any directory - you can run SETUP script from SETUP dir - it will add script path to your $PATH variable. (And .PY to PATHEXT in Windows to run .py scripts currently from shell. Be aware - SETUP script in Windows may rewrite your USER path variable with SYSTEM path variable and add script path to it. SYSTEM path variable is out of danger) 
-
+ * If you want to run script from any directory - you can run SETUP script from SETUP dir - it will add script path to your $PATH variable. 
+ **WINDOWS**: (And .PY to PATHEXT in Windows to run .py scripts currently from shell. Be aware - SETUP script in Windows may rewrite your USER path variable with SYSTEM path variable and add script path to it. SYSTEM path variable is out of danger) 
+ **LINUX/OSX**: currently working unstable(?).
 ### Example:
 `./cfparse.py contest_number (e.g. ./parse.py 513)`
 
