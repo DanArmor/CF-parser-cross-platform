@@ -58,6 +58,10 @@ Added support for Windows, setup scripts to configure parser. Now there is a pos
 Added "cfrate" script, that provides rating-list of solved problems for every user whose name you entered. 
 
 ### Known issues:
+#### General:
+* cfrate may not work with Python 2.x
+* You need to install module "requests" to use cfrate
+
 #### MacOS
 * May not work cfparse/cfrate in MacOS from the start. Try to `chmod +x cfparse.py` and `chmod +x cfrate.py`
 * In OS X it is necessary to install the `gnu-time` to measure time.
