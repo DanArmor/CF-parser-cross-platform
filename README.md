@@ -57,7 +57,7 @@ Added support for Windows, setup scripts to configure parser. Now there is a pos
 Added "cfrate" script, that provides rating-list of solved problems for every user whose name you entered. 
 
 ### Known issues:
-* May not work cfparse in MacOS. Try to `chmod +x cfparse.py`
+* May not work cfparse/cfrate in MacOS. Try to `chmod +x cfparse.py` and `chmod +x cfrate.py`
 
 ##### Todo, Bugs & Troubleshootings:
 
