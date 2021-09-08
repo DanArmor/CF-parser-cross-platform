@@ -47,7 +47,7 @@ Enter in the shell `cfrate CF_HANDLE1 CF_HANDLE2 ...` and you will get a list of
 
 ##### List of CodeForces Collaborators and assistants:
 + [DanArmor](https://codeforces.com/profile/DanArmor) - Creator
-+ [Evok](https://codeforces.com/profile/Evok) - helped with testing on MacOS
++ [Evok](https://codeforces.com/profile/Evok) - helped with general testing and MacOS testing.
 
 If you have any suggestions and/or bugs drop a message!
 
