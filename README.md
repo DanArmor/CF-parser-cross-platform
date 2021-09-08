@@ -8,7 +8,7 @@ Summary
 
 This is a python program that parses the sample tests from the contest problem pages. For each problem, it generates the sample input/output files and a shell script to run sample tests.
 
-Originally it was created by [johnathan79717](https://github.com/johnathan79717). [There is a page of the project](https://github.com/johnathan79717/codeforces-parser). But there is no support for Windows, so i decided to modifie the parser a little bit and add some new features in a future. 
+Originally it was created by [johnathan79717](https://github.com/johnathan79717). [There is a page of the project](https://github.com/johnathan79717/codeforces-parser). But there is no support for Windows, so I decided to modifie the parser a little bit and add some new features in a future. 
 
 Also it has "cfrate" script, which provides rating-list of solved problems for every user whose name you entered.
 
