@@ -19,7 +19,8 @@ Also it has "cfrate" script, which provides rating-list of solved problems for e
  - If you want to run script from any directory - add script folder to PATH variable. 
  
  You can run SETUP script, but...
- **WINDOWS**: **BE AWARE** - SETUP script in Windows may rewrite your USER path variable with SYSTEM path variable and add script path to it. SYSTEM path variable is out of danger) 
+ 
+ **WINDOWS**: **BE AWARE** - SETUP script in Windows may rewrite your USER path variable with SYSTEM path variable and add script path to it. SYSTEM path variable is out of danger
  
  **LINUX/OSX**: installation trought script currently working unstable(?).
  
