@@ -13,12 +13,16 @@ Originally it was created by [johnathan79717](https://github.com/johnathan79717)
 Also it has "cfrate" script, which provides rating-list of solved problems for every user whose name you entered.
 
 ### Installation
-
- * If you want to run script from any directory - you can run SETUP script from SETUP dir - it will add script path to your $PATH variable. 
  
- **WINDOWS**: (And .PY to PATHEXT in Windows to run .py scripts currently from shell. **BE AWARE** - SETUP script in Windows may rewrite your USER path variable with SYSTEM path variable and add script path to it. SYSTEM path variable is out of danger) 
+ **WINDOWS**: 
+ - Add .PY to PATHEXT to run .py scripts currently from shell.
+ - If you want to run script from any directory - add script folder to PATH variable. 
  
- **LINUX/OSX**: currently working unstable(?).
+ You can run SETUP script, but...
+ **WINDOWS**: **BE AWARE** - SETUP script in Windows may rewrite your USER path variable with SYSTEM path variable and add script path to it. SYSTEM path variable is out of danger) 
+ 
+ **LINUX/OSX**: installation trought script currently working unstable(?).
+ 
 ### Example:
 `./cfparse.py contest_number (e.g. ./parse.py 513)`
 
