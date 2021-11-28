@@ -1,8 +1,18 @@
-#!/usr/bin/python
 import json
 import requests
 import sys
 import time
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 is_plot = False
 manual_input = True
@@ -31,32 +41,19 @@ except:
 Border_of_low_rating = 1100 #All problems under that value are defined as low rating problems
 ##########################
 
-def Process_handle(handle_num=0):
-    if(manual_input):
-        print("Write your handle: ", end="")
-        handle = input()
-    else:
-        handle = handles[handle_num]
-
+def getInfoByResponse(response):
     try:
-        response = requests.get("https://codeforces.com/api/user.status?handle=" + handle) 
+        response = requests.get(response) 
     except:
         sys.stderr.write("---------------------------------\n")
         sys.stderr.write("ERROR:\n")
         sys.stderr.write("Something went wrong when we tried to get data from codeforces! No responce!\n")
         sys.stderr.write("---------------------------------\n")
         return
-
     data = json.loads(response.text)
+    return data
 
-    names = {}
-    high_rates = {}
-    low_rates = {}
-
-    total = 0;
-    total_low = 0
-    total_high = 0
-
+def checkData(data):
     if data["status"] != "OK":
         try:
             sys.stderr.write("---------------------------------\n")
@@ -69,6 +66,39 @@ def Process_handle(handle_num=0):
             sys.stderr.write("Something went wrong with getting codeforces comment\n")
             sys.stderr.write("---------------------------------\n")
             return
+
+def fancyOutput(message, first, second):
+    numberForPerc = first / second
+    percentage = "{:.1%}".format(numberForPerc)
+    print(bcolors.BOLD + message + bcolors.ENDC + str(first) + " = " + bcolors.OKBLUE + str(first) + bcolors.ENDC + "/" + bcolors.OKGREEN + str(second) + bcolors.WARNING + " (" + str(percentage) + ")" + bcolors.ENDC)
+
+def fancyOutputAdv(message, first, second, third):
+    numberForPerc = second / third
+    percentage = "{:.1%}".format(numberForPerc)
+    print(bcolors.BOLD + message + bcolors.ENDC + str(first) + " = " + bcolors.OKBLUE + str(second) + bcolors.ENDC + "/" + bcolors.OKGREEN + str(third) + bcolors.WARNING + " (" + str(percentage) + ")" + bcolors.ENDC)
+
+def Process_handle(handle_num=0):
+    if(manual_input):
+        print("Write your handle: ", end="")
+        handle = input()
+    else:
+        handle = handles[handle_num]
+
+    data = getInfoByResponse("https://codeforces.com/api/user.status?handle=" + handle)
+
+    names = {}
+    high_rates = {}
+    low_rates = {}
+
+    tags = {}
+    tagsAll = {}
+    ratingsAll = {}
+
+    total = 0;
+    total_low = 0
+    total_high = 0
+
+    checkData(data)
 
     for t in data["result"]:
 
@@ -86,6 +116,12 @@ def Process_handle(handle_num=0):
             continue
         else:
             names[key] = 1
+
+        for tag in t["problem"]["tags"]:
+            if tag in tags:
+                tags[tag] += 1
+            else:
+                tags[tag] = 1
 
         high_rate = True
         if(rate < Border_of_low_rating):
@@ -106,22 +142,69 @@ def Process_handle(handle_num=0):
 
         total += 1
 
+    data = getInfoByResponse("https://codeforces.com/api/problemset.problems")
+
+    checkData(data)
+    
+    for t in data["result"]["problems"]:
+        try:
+            rate = t["rating"]
+            for tag in t["tags"]:
+                if tag in tagsAll:
+                    tagsAll[tag] += 1
+                else:
+                    tagsAll[tag] = 1
+            if t["rating"] in ratingsAll:
+                ratingsAll[t["rating"]] += 1
+            else:
+                ratingsAll[t["rating"]] = 1
+        except:
+            pass
+    
+    totalLowFromAll = 0
+    totalHighFromAll = 0
+    for k, v in sorted(ratingsAll.items(), reverse=True):
+        if(int(k) < Border_of_low_rating):
+            totalLowFromAll += v
+        else:
+            totalHighFromAll += v
+
     #Outputing data
     print("Information about", handle)
-
-    print("Total: ", total)
+    numberForTotal = numberForPerc = total / (totalLowFromAll + totalHighFromAll)
+    percentageTotal = "{:.1%}".format(numberForTotal)
+    
+    fancyOutput("Total: ", total, totalLowFromAll + totalHighFromAll)
     print("--------------------")
 
-    print("Total high ratings: ", total_high)
+    numberForTotal = numberForPerc = total_high / totalHighFromAll
+    percentageTotal = "{:.1%}".format(numberForTotal)
+
+    fancyOutput("Total high ratings: ", total_high, totalHighFromAll)
+
     for k, v in sorted(high_rates.items(), reverse=True):
-        print("Rating: ", k, " = ", v);
+        fancyOutputAdv("Rating: ", k, v, ratingsAll[k])
     print("--------------------")
 
     for k, v in sorted(low_rates.items(), reverse=True):
-        print("Rating: ", k, " = ", v);
-    print("Total low ratings: ", total_low)
+        fancyOutputAdv("Rating: ", k, v, ratingsAll[k])
+    
+    numberForTotal = numberForPerc = total_low / totalLowFromAll
+    percentageTotal = "{:.1%}".format(numberForTotal)
+    fancyOutput("Total low ratings: ", total_low, totalLowFromAll)
+
     print("--------------------")
     print()
+
+    print("By tags:")
+    for k, v in sorted(tagsAll.items(), reverse=True):
+        tagSolved = 0
+        try:
+            tagSolved = tags[k]
+        except:
+            tagSolved = 0
+        fancyOutputAdv("--: ", k, tagSolved, tagsAll[k])
+
 
     if is_plot:
         data_for_plot = sorted(list(high_rates.items()) + list(low_rates.items()), reverse=True)
